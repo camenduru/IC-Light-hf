@@ -1,3 +1,4 @@
+import spaces
 import math
 import gradio as gr
 import numpy as np
@@ -332,6 +333,7 @@ def process(input_fg, prompt, image_width, image_height, num_samples, seed, step
     return pytorch2numpy(pixels)
 
 
+@spaces.GPU
 @torch.inference_mode()
 def process_relight(input_fg, prompt, image_width, image_height, num_samples, seed, steps, a_prompt, n_prompt, cfg, highres_scale, highres_denoise, lowres_denoise, bg_source):
     input_fg, matting = run_rmbg(input_fg)
@@ -382,7 +384,7 @@ with block:
     with gr.Row():
         with gr.Column():
             with gr.Row():
-                input_fg = gr.Image(source='upload', type="numpy", label="Image", height=480)
+                input_fg = gr.Image(sources='upload', type="numpy", label="Image", height=480)
                 output_bg = gr.Image(type="numpy", label="Preprocessed Foreground", height=480)
             prompt = gr.Textbox(label="Prompt")
             bg_source = gr.Radio(choices=[e.value for e in BGSource],
