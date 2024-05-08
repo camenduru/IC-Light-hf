@@ -4,7 +4,7 @@ emoji: 📈
 colorFrom: yellow
 colorTo: red
 sdk: gradio
-sdk_version: 4.29.0
+sdk_version: 3.41.2
 app_file: app.py
 pinned: false
 license: creativeml-openrail-m
