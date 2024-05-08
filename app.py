@@ -378,6 +378,8 @@ with block:
     with gr.Row():
         gr.Markdown("## IC-Light (Relighting with Foreground Condition)")
     with gr.Row():
+        gr.Markdown("See also https://github.com/lllyasviel/IC-Light for background-conditioned model and normal estimation")
+    with gr.Row():
         with gr.Column():
             with gr.Row():
                 input_fg = gr.Image(source='upload', type="numpy", label="Image", height=480)
