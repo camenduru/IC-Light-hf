@@ -416,12 +416,12 @@ with block:
     with gr.Row():
         dummy_image_for_outputs = gr.Image(visible=False, label='Result')
         gr.Examples(
-            fn=lambda *args: ([args[-1]], None),
+            fn=lambda *args: [args[-1]],
             examples=db_examples.foreground_conditioned_examples,
             inputs=[
                 input_fg, prompt, bg_source, image_width, image_height, seed, dummy_image_for_outputs
             ],
-            outputs=[result_gallery, output_bg],
+            outputs=[result_gallery],
             run_on_click=True, examples_per_page=1024
         )
     ips = [input_fg, prompt, image_width, image_height, num_samples, seed, steps, a_prompt, n_prompt, cfg, highres_scale, highres_denoise, lowres_denoise, bg_source]
