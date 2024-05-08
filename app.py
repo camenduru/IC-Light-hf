@@ -12,7 +12,7 @@ from diffusers.models.attention_processor import AttnProcessor2_0
 from transformers import CLIPTextModel, CLIPTokenizer
 from briarmbg import BriaRMBG
 from enum import Enum
-from torch.hub import download_url_to_file
+# from torch.hub import download_url_to_file
 
 
 # 'stablediffusionapi/realistic-vision-v51'
@@ -49,7 +49,7 @@ unet.forward = hooked_unet_forward
 # Load
 
 model_path = './models/iclight_sd15_fc.safetensors'
-download_url_to_file(url='https://huggingface.co/lllyasviel/ic-light/resolve/main/iclight_sd15_fc.safetensors', dst=model_path)
+# download_url_to_file(url='https://huggingface.co/lllyasviel/ic-light/resolve/main/iclight_sd15_fc.safetensors', dst=model_path)
 sd_offset = sf.load_file(model_path)
 sd_origin = unet.state_dict()
 keys = sd_origin.keys()
